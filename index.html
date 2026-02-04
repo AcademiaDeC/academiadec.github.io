@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Academia Suprema</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Consolas, monospace;
+    background:#0f172a;
+    color:#e2e8f0;
+    display:flex;
+}
+
+.sidebar{
+    width:260px;
+    background:#020617;
+    height:100vh;
+    overflow:auto;
+    padding:20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    color:#38bdf8;
+}
+
+.sidebar a{
+    display:block;
+    color:#cbd5e1;
+    text-decoration:none;
+    margin:6px 0;
+    font-size:14px;
+}
+
+.sidebar a:hover{
+    color:#38bdf8;
+}
+
+.content{
+    margin-left:280px;
+    padding:40px;
+    max-width:1100px;
+}
+
+section{
+    margin-bottom:70px;
+}
+
+h1{ color:#38bdf8; font-size:32px; }
+h2{ color:#22d3ee; }
+h3{ color:#7dd3fc; }
+
+pre{
+    background:#1e293b;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+    line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>C Academia</h2>
+<a href="#historia">Historia</a>
+<a href="#quees">¿Qué es C?</a>
+<a href="#compilacion">Compilación</a>
+<a href="#tipos">Tipos de Datos</a>
+<a href="#control">Control de Flujo</a>
+<a href="#funciones">Funciones</a>
+<a href="#arrays">Arrays</a>
+<a href="#punteros">Punteros</a>
+<a href="#memoria">Memoria</a>
+<a href="#structs">Structs</a>
+<a href="#archivos">Archivos</a>
+<a href="#algoritmos">Algoritmos</a>
+<a href="#recursion">Recursión</a>
+<a href="#bitwise">Bitwise</a>
+<a href="#proyecto">Proyecto Final</a>
+</div>
+
+<div class="content">
+
+<h1>Lenguaje C — Academia Suprema</h1>
+
+<section id="historia">
+<h2>Historia de C</h2>
+<p>
+El lenguaje C fue creado en 1972 por Dennis Ritchie en Bell Labs.
+Fue diseñado para implementar UNIX.
+Su objetivo era combinar eficiencia de bajo nivel con sintaxis estructurada.
+C influyó en casi todos los lenguajes modernos.
+</p>
+</section>
+
+<section id="quees">
+<h2>¿Qué es C?</h2>
+<p>
+C es un lenguaje compilado, estructurado y de propósito general.
+No tiene recolector de basura.
+El programador controla directamente la memoria.
+Es rápido porque se compila a código máquina.
+</p>
+</section>
+
+<section id="compilacion">
+<h2>Proceso de Compilación</h2>
+<pre>
+gcc programa.c -o programa
+</pre>
+<p>
+Fases:
+1. Preprocesador
+2. Compilador
+3. Ensamblador
+4. Linker
+</p>
+</section>
+
+<section id="tipos">
+<h2>Tipos de Datos</h2>
+
+<pre>
+int numero = 10;
+float decimal = 3.14;
+char letra = 'A';
+double grande = 10.123456;
+</pre>
+
+<p>
+Cada tipo ocupa diferente espacio en memoria.
+</p>
+</section>
+
+<section id="control">
+<h2>Control de Flujo</h2>
+
+<h3>If / Else</h3>
+<pre>
+if(numero > 5){
+    printf("Mayor\n");
+}else{
+    printf("Menor\n");
+}
+</pre>
+
+<h3>For</h3>
+<pre>
+for(int i=0; i<5; i++){
+    printf("%d\n", i);
+}
+</pre>
+
+<h3>While</h3>
+<pre>
+while(numero > 0){
+    numero--;
+}
+</pre>
+
+</section>
+
+<section id="funciones">
+<h2>Funciones</h2>
+
+<pre>
+int suma(int a, int b){
+    return a + b;
+}
+
+int main(){
+    printf("%d", suma(3,4));
+    return 0;
+}
+</pre>
+
+</section>
+
+<section id="arrays">
+<h2>Arrays</h2>
+
+<pre>
+int arr[5] = {1,2,3,4,5};
+
+for(int i=0;i<5;i++){
+    printf("%d\n", arr[i]);
+}
+</pre>
+
+<h3>Array Dinámico</h3>
+<pre>
+#include &lt;stdlib.h&gt;
+
+int *arr = malloc(5 * sizeof(int));
+free(arr);
+</pre>
+
+</section>
+
+<section id="punteros">
+<h2>Punteros</h2>
+
+<pre>
+int x = 10;
+int *p = &x;
+printf("%d\n", *p);
+</pre>
+
+<h3>Doble puntero</h3>
+<pre>
+int **pp = &p;
+printf("%d\n", **pp);
+</pre>
+
+</section>
+
+<section id="memoria">
+<h2>Memoria: Stack vs Heap</h2>
+
+<pre>
+int stackVar = 5;
+int *heapVar = malloc(sizeof(int));
+*heapVar = 20;
+free(heapVar);
+</pre>
+
+<p>
+Stack: automático y rápido.
+Heap: dinámico y manual.
+</p>
+</section>
+
+<section id="structs">
+<h2>Structs</h2>
+
+<pre>
+struct Persona{
+    char nombre[50];
+    int edad;
+};
+
+int main(){
+    struct Persona p1 = {"Juan", 25};
+    printf("%s %d", p1.nombre, p1.edad);
+}
+</pre>
+
+</section>
+
+<section id="archivos">
+<h2>Manejo de Archivos</h2>
+
+<pre>
+FILE *f = fopen("datos.txt","w");
+fprintf(f,"Hola Mundo");
+fclose(f);
+</pre>
+
+</section>
+
+<section id="algoritmos">
+<h2>Algoritmos — Bubble Sort</h2>
+
+<pre>
+void bubbleSort(int arr[], int n){
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j] > arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+</pre>
+
+</section>
+
+<section id="recursion">
+<h2>Recursión</h2>
+
+<pre>
+int factorial(int n){
+    if(n==0) return 1;
+    return n * factorial(n-1);
+}
+</pre>
+
+</section>
+
+<section id="bitwise">
+<h2>Operadores Bitwise</h2>
+
+<pre>
+int a = 5;  // 0101
+int b = 3;  // 0011
+
+int and = a & b;  // 0001
+int or = a | b;   // 0111
+int xor = a ^ b;  // 0110
+</pre>
+
+</section>
+
+<section id="proyecto">
+<h2>Proyecto Final — Sistema de Gestión</h2>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Estudiante{
+    char nombre[50];
+    float nota;
+};
+
+int main(){
+    struct Estudiante lista[3];
+
+    for(int i=0;i<3;i++){
+        printf("Nombre: ");
+        scanf("%s", lista[i].nombre);
+
+        printf("Nota: ");
+        scanf("%f", &lista[i].nota);
+    }
+
+    printf("\nLista:\n");
+    for(int i=0;i<3;i++){
+        printf("%s - %.2f\n", lista[i].nombre, lista[i].nota);
+    }
+
+    return 0;
+}
+</pre>
+
+<p>
+Este proyecto combina:
+- Arrays
+- Structs
+- Entrada de datos
+- Salida formateada
+</p>
+
+</section>
+
+</div>
+
+</body>
+</html>
+
